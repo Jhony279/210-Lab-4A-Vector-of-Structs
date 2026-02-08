@@ -9,7 +9,6 @@ struct Color{
     float blue;
 };
 
-// Function Prototypes:
 Color createColorInst();
 void output(Color);
 
@@ -23,7 +22,11 @@ int main() {
     return 0;
 }
 
-// Function Definitions:
+/**
+ * @brief Creates a `Color` struct and prompts user to enter the RGB values of-
+ * the color they wish to save
+ * @return `Color` data type with saved RGB values
+*/
 Color createColorInst(){
     Color color;
 
@@ -39,11 +42,13 @@ Color createColorInst(){
     return color;
 }
 
+/**
+ * @brief Outputs the members of a `Color` data type
+ * @param `Color` data type
+ * @return Nothing
+*/
 void output(Color savedColor){
     cout << "Red: "<< savedColor.red;
     cout << "\nGreen: "<< savedColor.green;
     cout << "\nBlue: "<< savedColor.blue;
 }
-
-// Reminder lines must be 80 characters or less, no more than one empty line, no magic numbers,
-// and Reminder to comment code where neccessary.
