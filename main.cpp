@@ -3,7 +3,14 @@
 #include <iostream>
 using namespace std;
 
+struct Color{
+    float red;
+    float green;
+    float blue;
+};
+
 // Function Prototypes:
+Color createColorInst();
 
 // <description>
 // arguments: 
