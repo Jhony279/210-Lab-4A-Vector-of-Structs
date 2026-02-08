@@ -20,6 +20,11 @@ int main() {
 }
 
 // Function Definitions:
+Color createColorInst(){
+    Color color;
+
+    return color;
+}
 
 // Reminder lines must be 80 characters or less, no more than one empty line, no magic numbers,
 // and Reminder to comment code where neccessary.
