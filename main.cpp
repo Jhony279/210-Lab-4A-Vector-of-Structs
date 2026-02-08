@@ -31,25 +31,41 @@ Color createColorInst(){
     Color color;
 
     cout << "---- Color Saver Program ----\n";
-    // float r;
     cout << "Enter the red Value of your color (0 - 255): ";
-    // for ()
     while (!(cin >> color.red) || color.red > 255 || color.red < 0){
         cin.clear();
         cin.ignore(1000, '\n');
         cout << " - Inproper data type! please enter a number: ";
         cin >> color.red;
     }
-    
-    // while (color.red > 255 || color.red < 0){
-    //     cout << " - Invalid input! enter a value from 0 - 255: ";
-    //     cin >> color.red;
-    // }
+    while (color.red > 255 || color.red < 0){
+        cout << " - Invalid input! enter a value from 0 - 255: ";
+        cin >> color.red;
+    }
 
     cout << "Enter the green Value of of your (0 - 255): ";
-    cin >> color.green;
+    while (!(cin >> color.green) || color.green > 255 || color.green < 0){
+        cin.clear();
+        cin.ignore(1000, '\n');
+        cout << " - Inproper data type! please enter a number: ";
+        cin >> color.green;
+    }
+    while (color.green > 255 || color.green < 0){
+        cout << " - Invalid input! enter a value from 0 - 255: ";
+        cin >> color.green;
+    }
+
     cout << "Enter the blue Value of your color (0 - 255):";
-    cin >> color.blue;
+    while (!(cin >> color.blue) || color.blue > 255 || color.blue < 0){
+        cin.clear();
+        cin.ignore(1000, '\n');
+        cout << " - Inproper data type! please enter a number: ";
+        cin >> color.blue;
+    }
+    while (color.blue > 255 || color.blue < 0){
+        cout << " - Invalid input! enter a value from 0 - 255: ";
+        cin >> color.blue;
+    }
     cout << "\n";
 
     return color;
