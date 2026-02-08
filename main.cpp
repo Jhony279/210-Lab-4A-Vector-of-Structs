@@ -48,6 +48,8 @@ Color createColorInst(){
  * @return Nothing
 */
 void output(Color savedColor){
+
+    cout << "---- Saved Color (RGB values) ----";
     cout << "Red: "<< savedColor.red;
     cout << "\nGreen: "<< savedColor.green;
     cout << "\nBlue: "<< savedColor.blue;
