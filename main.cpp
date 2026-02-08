@@ -33,7 +33,13 @@ Color createColorInst(){
     cout << "---- Color Saver Program ----\n";
     // float r;
     cout << "Enter the red Value of your color (0 - 255): ";
-    cin >> color.red;
+    while (!(cin >> color.red)){
+        cin.clear();
+        cin.ignore(10);
+        cout << "Inproper data type please enter a number!: ";
+        cin >> color.red;
+    }
+    
     while (color.red > 255 || color.red < 0){
         cout << "Invalid input enter a value from 0 - 255: ";
         cin >> color.red;
@@ -56,7 +62,7 @@ Color createColorInst(){
 void output(Color savedColor){
 
     cout << "---- Saved Color (RGB values) ----";
-    cout << "Red: "<< savedColor.red;
+    cout << "\nRed: "<< savedColor.red;
     cout << "\nGreen: "<< savedColor.green;
     cout << "\nBlue: "<< savedColor.blue;
 }
