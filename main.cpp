@@ -1,6 +1,7 @@
 // COMSC-210 | Lab 4A | Johnathan Perez Baltazar
 
 #include <iostream>
+#include <vector>
 using namespace std;
 
 struct Color{
@@ -23,7 +24,7 @@ int main() {
 }
 
 /**
- * @brief Creates a `Color` struct and prompts user to enter the RGB values of-
+ * @brief Creates a `Color` struct and prompts user to enter the RGB values of
  * the color they wish to save
  * @return `Color` data type with saved RGB values
 */
@@ -32,7 +33,7 @@ Color createColorInst(){
 
     cout << "---- Color Saver Program ----\n";
     cout << "Enter the red Value of your color (0 - 255): ";
-    // This loop 
+    // loop will check if a 0-255 number is entered if not it will reprompt user
     while (!(cin >> color.red) || color.red > 255 || color.red < 0){
         cin.clear();
         cin.ignore(1000, '\n');
@@ -40,6 +41,7 @@ Color createColorInst(){
     }
 
     cout << "Enter the green Value of of your (0 - 255): ";
+    // loop will check if a 0-255 number is entered if not it will reprompt user
     while (!(cin >> color.green) || color.green > 255 || color.green < 0){
         cin.clear();
         cin.ignore(1000, '\n');
@@ -47,6 +49,7 @@ Color createColorInst(){
     }
 
     cout << "Enter the blue Value of your color (0 - 255):";
+    // loop will check if a 0-255 number is entered if not it will reprompt user
     while (!(cin >> color.blue) || color.blue > 255 || color.blue < 0){
         cin.clear();
         cin.ignore(1000, '\n');
