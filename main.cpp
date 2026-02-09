@@ -8,6 +8,7 @@ using namespace std;
 
 // How many characters to ignore when clearing the input buffer
 const int IGNORE_VALUE = 1000;
+const int VALUE_PRECISION = 3;
 // Max and min values for RGB values
 const int MAX_RGB_VALUE = 255;
 const int MIN_RGB_VALUE = 0;
@@ -38,7 +39,8 @@ void vectorOutput(vector<Color>);
 */
 int main() {
     // Generate a random number of colors to create and save (between 25 and 50)
-    int n = colorAmount(seed);
+    // int n = colorAmount(seed);
+    int n = 2; // for testing purposes, set n to 4
 
     // Loop to create and save n number of colors in the savedColors vector
     for (int i = 0; i < n; i++){
@@ -95,10 +97,15 @@ Color createColorInst(){
  * @return Nothing
 */
 void vectorOutput(vector<Color> savedColors){
+    cout << "\n---- Saved Color (RGB values) ----";
+    cout << "\nColor#" << setw(5) << "Red" << setw(10) << "Green" << setw(10) << "Blue\n";
+    cout << "-----------------------------------";
     for (int i = 0; i < savedColors.size(); i++){
-        cout << "\n---- Saved Color (RGB values) ----";
-        cout << "\n - Red Value: " << savedColors[i].red << " ";
-        cout << "\n - Green Value: " << savedColors[i].green << " ";
-        cout << "\n - Blue Value: " << savedColors[i].blue << " ";
+        cout << "\n - Red Value: " << fixed << setprecision(VALUE_PRECISION) 
+            << savedColors[i].red << " ";
+        cout << "\n - Green Value: " << fixed << setprecision(VALUE_PRECISION) 
+            << savedColors[i].green << " ";
+        cout << "\n - Blue Value: " << fixed << setprecision(VALUE_PRECISION) 
+            << savedColors[i].blue << " ";
     }
 }
