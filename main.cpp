@@ -9,6 +9,7 @@ using namespace std;
 // How many characters to ignore when clearing the input buffer
 const int IGNORE_VALUE = 1000;
 const int VALUE_PRECISION = 3;
+const int COUT_SPACING = 12;
 // Max and min values for RGB values
 const int MAX_RGB_VALUE = 255;
 const int MIN_RGB_VALUE = 0;
@@ -98,14 +99,11 @@ Color createColorInst(){
 */
 void vectorOutput(vector<Color> savedColors){
     cout << "\n---- Saved Color (RGB values) ----";
-    cout << "\nColor#" << setw(5) << "Red" << setw(10) << "Green" << setw(10) << "Blue\n";
-    cout << "-----------------------------------";
+    cout << "\nColor#" << setw(COUT_SPACING) << "R Value" << setw(COUT_SPACING) << "G Value" << setw(COUT_SPACING) << "B Value\n";
+    cout << "------" << setw(COUT_SPACING) << "-------" << setw(COUT_SPACING) << "-------" << setw(COUT_SPACING) << "-------\n";
     for (int i = 0; i < savedColors.size(); i++){
-        cout << "\n - Red Value: " << fixed << setprecision(VALUE_PRECISION) 
-            << savedColors[i].red << " ";
-        cout << "\n - Green Value: " << fixed << setprecision(VALUE_PRECISION) 
-            << savedColors[i].green << " ";
-        cout << "\n - Blue Value: " << fixed << setprecision(VALUE_PRECISION) 
-            << savedColors[i].blue << " ";
+        cout << setw(3) << i + 1 << setw(COUT_SPACING) << savedColors[i].red
+            << setw(COUT_SPACING) << savedColors[i].green << setw(COUT_SPACING) 
+            << savedColors[i].blue;
     }
 }
