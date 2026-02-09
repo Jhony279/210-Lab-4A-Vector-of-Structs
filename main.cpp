@@ -10,6 +10,8 @@ struct Color{
     float blue;
 };
 
+vector<Color> savedColors;
+
 Color createColorInst();
 void output(Color);
 
@@ -19,7 +21,12 @@ void output(Color);
 int main() {
     Color newC = createColorInst();
 
-    output(newC);
+    savedColors.insert(savedColors.begin(), newC);
+    for (int i = 0; i < savedColors.size(); i++){
+        cout << "\nColor " << savedColors[i].red << " ";
+    }
+
+    // output(newC);
     return 0;
 }
 
