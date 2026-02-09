@@ -2,25 +2,41 @@
 
 #include <iostream>
 #include <vector>
+#include <random>
 using namespace std;
 
+// How many characters to ignore when clearing the input buffer
+const int IGNORE_VALUE = 1000;
+// Max and min values for RGB values
+const int MAX_RGB_VALUE = 255;
+const int MIN_RGB_VALUE = 0;
+// Max and Min values for random color generation
+const int MAX_RANDOM_COLOR_VALUE = 50;
+const int MIN_RANDOM_COLOR_VALUE = 25;
+
+// Struct to store RGB values of a color
 struct Color{
     float red;
     float green;
     float blue;
 };
 
+// Vector to store all the Color data types created by the user
 vector<Color> savedColors;
+
+random_device colorAmount;
 
 Color createColorInst();
 void output(Color);
 void vectorOutput(vector<Color>);
 
-// <description>
-// arguments: 
-// returns: 
+/**
+ * @brief 
+ * @return 
+*/
 int main() {
     Color newC = createColorInst();
+    srand(time(0));
 
     savedColors.insert(savedColors.begin(), newC);
     vectorOutput(savedColors);
@@ -40,7 +56,7 @@ Color createColorInst(){
     cout << "---- Color Saver Program ----\n";
     cout << "Enter the red Value of your color (0 - 255): ";
     // loop will check if a 0-255 number is entered if not it will reprompt user
-    while (!(cin >> color.red) || color.red > 255 || color.red < 0){
+    while (!(cin >> color.red) || color.red > MAX_RGB_VALUE || color.red < MIN_RGB_VALUE){
         cin.clear();
         cin.ignore(1000, '\n');
         cout << " - Inproper data type! please enter a number: ";
@@ -48,7 +64,7 @@ Color createColorInst(){
 
     cout << "Enter the green Value of of your (0 - 255): ";
     // loop will check if a 0-255 number is entered if not it will reprompt user
-    while (!(cin >> color.green) || color.green > 255 || color.green < 0){
+    while (!(cin >> color.green) || color.green > MAX_RGB_VALUE || color.green < MIN_RGB_VALUE){
         cin.clear();
         cin.ignore(1000, '\n');
         cout << " - Inproper data type! please enter a number: ";
@@ -56,7 +72,7 @@ Color createColorInst(){
 
     cout << "Enter the blue Value of your color (0 - 255):";
     // loop will check if a 0-255 number is entered if not it will reprompt user
-    while (!(cin >> color.blue) || color.blue > 255 || color.blue < 0){
+    while (!(cin >> color.blue) || color.blue > MAX_RGB_VALUE || color.blue < MIN_RGB_VALUE){
         cin.clear();
         cin.ignore(1000, '\n');
         cout << " - Inproper data type! please enter a number: ";
@@ -64,19 +80,6 @@ Color createColorInst(){
     cout << "\n";
 
     return color;
-}
-
-/**
- * @brief Outputs the members of a `Color` data type
- * @param `Color` data type
- * @return Nothing
-*/
-void output(Color savedColor){
-
-    cout << "---- Saved Color (RGB values) ----";
-    cout << "\nRed: "<< savedColor.red;
-    cout << "\nGreen: "<< savedColor.green;
-    cout << "\nBlue: "<< savedColor.blue;
 }
 
 /**
