@@ -14,6 +14,7 @@ vector<Color> savedColors;
 
 Color createColorInst();
 void output(Color);
+void vectorOutput(vector<Color>);
 
 // <description>
 // arguments: 
@@ -22,9 +23,7 @@ int main() {
     Color newC = createColorInst();
 
     savedColors.insert(savedColors.begin(), newC);
-    for (int i = 0; i < savedColors.size(); i++){
-        cout << "\nColor " << savedColors[i].red << " ";
-    }
+    vectorOutput(savedColors);
 
     // output(newC);
     return 0;
@@ -78,4 +77,18 @@ void output(Color savedColor){
     cout << "\nRed: "<< savedColor.red;
     cout << "\nGreen: "<< savedColor.green;
     cout << "\nBlue: "<< savedColor.blue;
+}
+
+/**
+ * @brief Outputs the member values of all `Color` data types inside a vector
+ * @param Vector of `Color` data types
+ * @return Nothing
+*/
+void vectorOutput(vector<Color> savedColors){
+    for (int i = 0; i < savedColors.size(); i++){
+        cout << "\n---- Saved Color (RGB values) ----";
+        cout << "\n - Red Value: " << savedColors[i].red << " ";
+        cout << "\n - Green Value: " << savedColors[i].green << " ";
+        cout << "\n - Blue Value: " << savedColors[i].blue << " ";
+    }
 }
