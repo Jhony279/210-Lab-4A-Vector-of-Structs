@@ -3,6 +3,7 @@
 #include <iostream>
 #include <vector>
 #include <random>
+#include <iomanip>
 using namespace std;
 
 // How many characters to ignore when clearing the input buffer
