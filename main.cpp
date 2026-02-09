@@ -36,13 +36,16 @@ void vectorOutput(vector<Color>);
  * @return 
 */
 int main() {
+    // Generate a random number of colors to create and save (between 25 and 50)
     int n = colorAmount(seed);
 
+    // Loop to create and save n number of colors in the savedColors vector
     for (int i = 0; i < n; i++){
         Color newC = createColorInst();
         savedColors.insert(savedColors.begin(), newC);
     }
 
+    // Output the RGB values of all the colors saved in the savedColors vector
     vectorOutput(savedColors);
 
     return 0;
