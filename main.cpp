@@ -29,19 +29,19 @@ vector<Color> savedColors;
 
 // Initialize a random number generator
 mt19937 seed(time(0));
-uniform_int_distribution<> colorAmount(MIN_RANDOM_COLOR_VALUE, MAX_RANDOM_COLOR_VALUE);
+uniform_int_distribution<> 
+    colorAmount(MIN_RANDOM_COLOR_VALUE, MAX_RANDOM_COLOR_VALUE);
 
 Color createColorInst();
 void vectorOutput(vector<Color>);
 
 /**
- * @brief 
- * @return 
+ * @brief Where the main code will execute other functions
+ * @return Nothing
 */
 int main() {
     // Generate a random number of colors to create and save (between 25 and 50)
-    // int n = colorAmount(seed);
-    int n = 2; // for testing purposes, set n to 4
+    int n = colorAmount(seed);
 
     // Loop to create and save n number of colors in the savedColors vector
     for (int i = 0; i < n; i++){
@@ -66,7 +66,9 @@ Color createColorInst(){
     cout << "---- Color Saver Program ----\n";
     cout << "Enter the red Value of your color (0 - 255): ";
     // loop will check if a 0-255 number is entered if not it will reprompt user
-    while (!(cin >> color.red) || color.red > MAX_RGB_VALUE || color.red < MIN_RGB_VALUE){
+    while (!(cin >> color.red) || color.red > MAX_RGB_VALUE 
+        || color.red < MIN_RGB_VALUE){
+
         cin.clear();
         cin.ignore(1000, '\n');
         cout << " - Inproper data type! please enter a number: ";
@@ -74,7 +76,9 @@ Color createColorInst(){
 
     cout << "Enter the green Value of of your (0 - 255): ";
     // loop will check if a 0-255 number is entered if not it will reprompt user
-    while (!(cin >> color.green) || color.green > MAX_RGB_VALUE || color.green < MIN_RGB_VALUE){
+    while (!(cin >> color.green) || color.green > MAX_RGB_VALUE 
+        || color.green < MIN_RGB_VALUE){
+
         cin.clear();
         cin.ignore(1000, '\n');
         cout << " - Inproper data type! please enter a number: ";
@@ -82,7 +86,9 @@ Color createColorInst(){
 
     cout << "Enter the blue Value of your color (0 - 255):";
     // loop will check if a 0-255 number is entered if not it will reprompt user
-    while (!(cin >> color.blue) || color.blue > MAX_RGB_VALUE || color.blue < MIN_RGB_VALUE){
+    while (!(cin >> color.blue) || color.blue > MAX_RGB_VALUE 
+        || color.blue < MIN_RGB_VALUE){
+
         cin.clear();
         cin.ignore(1000, '\n');
         cout << " - Inproper data type! please enter a number: ";
@@ -98,12 +104,16 @@ Color createColorInst(){
  * @return Nothing
 */
 void vectorOutput(vector<Color> savedColors){
-    cout << "\n---- Saved Color (RGB values) ----";
-    cout << "\nColor#" << setw(COUT_SPACING) << "R Value" << setw(COUT_SPACING) << "G Value" << setw(COUT_SPACING) << "B Value\n";
-    cout << "------" << setw(COUT_SPACING) << "-------" << setw(COUT_SPACING) << "-------" << setw(COUT_SPACING) << "-------\n";
+    cout << "\n------ Saved Color (RGB values) ------";
+    // Output the labes for the values inside the vector
+    cout << "\nColor#" << setw(COUT_SPACING) << "R Value" << setw(COUT_SPACING)
+        << "G Value" << setw(COUT_SPACING) << "B Value\n";
+    cout << "------" << setw(COUT_SPACING) << "-------" << setw(COUT_SPACING)
+        << "-------" << setw(COUT_SPACING) << "-------\n";
+    // Output the saved colors inside vector and format using setw()
     for (int i = 0; i < savedColors.size(); i++){
         cout << setw(3) << i + 1 << setw(COUT_SPACING) << savedColors[i].red
             << setw(COUT_SPACING) << savedColors[i].green << setw(COUT_SPACING) 
-            << savedColors[i].blue;
+            << savedColors[i].blue << "\n"; 
     }
 }
