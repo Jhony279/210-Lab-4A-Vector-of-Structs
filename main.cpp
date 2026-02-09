@@ -24,10 +24,11 @@ struct Color{
 // Vector to store all the Color data types created by the user
 vector<Color> savedColors;
 
-random_device colorAmount;
+// Initialize a random number generator
+mt19937 seed(time(0));
+uniform_int_distribution<> colorAmount(MIN_RANDOM_COLOR_VALUE, MAX_RANDOM_COLOR_VALUE);
 
 Color createColorInst();
-void output(Color);
 void vectorOutput(vector<Color>);
 
 /**
@@ -35,13 +36,15 @@ void vectorOutput(vector<Color>);
  * @return 
 */
 int main() {
-    Color newC = createColorInst();
-    srand(time(0));
+    int n = colorAmount(seed);
 
-    savedColors.insert(savedColors.begin(), newC);
+    for (int i = 0; i < n; i++){
+        Color newC = createColorInst();
+        savedColors.insert(savedColors.begin(), newC);
+    }
+
     vectorOutput(savedColors);
 
-    // output(newC);
     return 0;
 }
 
